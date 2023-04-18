@@ -9789,7 +9789,7 @@ GameObject:
   - component: {fileID: 1547032210931437480}
   - component: {fileID: 1547994369259012200}
   m_Layer: 0
-  m_Name: FX_Explosion_01
+  m_Name: LevelMaxGunBulletExp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

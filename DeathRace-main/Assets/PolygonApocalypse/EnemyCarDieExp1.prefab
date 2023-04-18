@@ -19323,7 +19323,7 @@ GameObject:
   - component: {fileID: 2774635652160860666}
   - component: {fileID: 416455072026468786}
   m_Layer: 0
-  m_Name: FX_Explosion_Large_Dark_01(Clone)
+  m_Name: EnemyCarDieExp1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

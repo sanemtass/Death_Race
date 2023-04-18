@@ -562,14 +562,18 @@ MonoBehaviour:
   randomObjectPrefabs:
   - {fileID: 7353280718852130591, guid: fccb360f18ecc4877829903d995c012f, type: 3}
   - {fileID: 1032129792993069425, guid: c321d29931ef14c8b8bb11c26874880a, type: 3}
+  - {fileID: 4962661784995996489, guid: e3f58eaf2a5984e4ba06a0a5ebc136f5, type: 3}
   - {fileID: 773712170250538325, guid: b71ff54debb474941832fb3818c2a07e, type: 3}
   - {fileID: 426843957481783679, guid: c2f561ea6cadb4cbebd6d4ce0d530fd8, type: 3}
   - {fileID: 2991261466318432642, guid: 85736bb71cc9e427aa9f21ba52acf615, type: 3}
+  - {fileID: 1959024309844365978, guid: 9b19e2c9f51654cbd899146ac8940e56, type: 3}
   - {fileID: 6526609980025412770, guid: 53b404e637fdc47afb3864dcde463a2d, type: 3}
   - {fileID: 1469142554215187182, guid: f84f2760986f64c2383a88683cbc15e6, type: 3}
   - {fileID: 2310191544763202670, guid: cccaf0a07df074c78971a28fece6fffb, type: 3}
   - {fileID: 910606248625911445, guid: 223af81de60d5401bbb72645966b932a, type: 3}
+  - {fileID: 6377191395003753780, guid: 91e1ee4ccc3244552a503b7cd704efce, type: 3}
   - {fileID: 4000293711245438732, guid: 59ae5176c1db74984ab3c7b4fedd32ba, type: 3}
+  - {fileID: 291407155978577914, guid: 511a0bdf28af0423f88ed6d6d82dd4d3, type: 3}
   - {fileID: 949652152233528980, guid: a76c5bbea374746d38b16f2757ca0580, type: 3}
   - {fileID: 7718246416211443887, guid: 096637b95b6ba440e82a3d1dfe02df5b, type: 3}
   - {fileID: 4295340131801111588, guid: 5c087de68278b4ffc945619ca7340222, type: 3}
@@ -577,7 +581,8 @@ MonoBehaviour:
   - {fileID: 5911836126388407490, guid: ae059e0b0f5754b4b8785b2002997b47, type: 3}
   - {fileID: 5223903901857173101, guid: d697f1ddfc34a4cbeb6f52c399c65eca, type: 3}
   - {fileID: 4141613771395951615, guid: 4b370e49c02e94e71a9b6510aecebf59, type: 3}
-  - {fileID: 4274426046259494454, guid: 6fe7662fbc8e749aeada17806b6b1a63, type: 3}
+  - {fileID: 4962661784995996489, guid: e3f58eaf2a5984e4ba06a0a5ebc136f5, type: 3}
+  - {fileID: 291407155978577914, guid: 511a0bdf28af0423f88ed6d6d82dd4d3, type: 3}
   randomObjectList: []
   numObjectsToSpawn: 30
   minX: -60

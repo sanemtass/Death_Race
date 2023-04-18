@@ -7,7 +7,7 @@ public class GunBehaviour : MonoBehaviour
     [SerializeField] LayerMask layermask;
 
     public Gun gun;
-    public GameObject bulletObject;
+    public int bulletObjectType;
     public Transform spawnPosition;
     public RaycastHit hit;
 
@@ -15,12 +15,12 @@ public class GunBehaviour : MonoBehaviour
     private bool isEnemyPresent;
     private EnemyCarBehaviour[] enemyCars;
     public Gun nextGun;
-
+    public Vector3 gunRotation=new Vector3();
 
     private void Start()
     {
         enemyCars = FindObjectsOfType<EnemyCarBehaviour>();
-        InvokeRepeating("CheckForEnemies", 0f, 0.5f);
+        transform.localRotation = Quaternion.Euler(gunRotation);
     }
 
     private void Update()
@@ -28,6 +28,20 @@ public class GunBehaviour : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layermask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
+            if (!isFiring)
+            {
+                //transform.LookAt(hit.transform);
+                isEnemyPresent = true;
+                StartFiring();
+            }
+        }
+        else
+        {
+            if (isFiring)
+            {
+                isEnemyPresent = false;
+                StopFiring();
+            }
         }
     }
 
@@ -55,7 +69,7 @@ public class GunBehaviour : MonoBehaviour
                     break;
                 }
 
-                var bullet = ObjectPooling.Instance.GetBullet();
+                var bullet = ObjectPooling.Instance.GetPoolObject(bulletObjectType);
 
                 if (bullet == null)
                 {
@@ -64,36 +78,15 @@ public class GunBehaviour : MonoBehaviour
 
                 bullet.transform.position = spawnPosition.position;
                 bullet.gameObject.SetActive(true);
-                bullet.GetComponent<Bullet>().GetTarget(hit.point);
+
+                Bullet bulletComponent = bullet.GetComponent<Bullet>();
+                bulletComponent.gunBehaviour = this;
+                bulletComponent.GetTarget(hit.point);
             }
             else
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(0.1));
             }
-        }
-    }
-
-    private void CheckForEnemies()
-    {
-        bool foundEnemy = false;
-        foreach (var enemy in enemyCars)
-        {
-            if (enemy != null)
-            {
-                foundEnemy = true;
-                break;
-            }
-        }
-
-        if (foundEnemy && !isFiring)
-        {
-            isEnemyPresent = true;
-            StartFiring();
-        }
-        else if (!foundEnemy && isFiring)
-        {
-            isEnemyPresent = false;
-            StopFiring();
         }
     }
 }

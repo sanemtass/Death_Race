@@ -43,6 +43,7 @@ public class CarBehavior : MonoBehaviour, IDamagable
         InitHealth();
         Initialized();
         RegenerateArmor();
+        uIManager.UpdateHealthBarPlayer(); //? emin degilim
     }
 
     void Update()

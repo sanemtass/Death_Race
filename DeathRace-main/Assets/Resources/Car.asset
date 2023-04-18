@@ -15,6 +15,6 @@ MonoBehaviour:
   carPrefab: {fileID: 3463377482779925032, guid: 605ae829960be4dd7a6995645d73fd08,
     type: 3}
   health: 0
-  maxHealth: 167
+  maxHealth: 100
   armor: 0
   maxArmor: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6953546757433225207}
   - component: {fileID: 6918758666403893899}
   m_Layer: 0
-  m_Name: FX_Shell_Ejection_Repeating_Large_01
+  m_Name: Level1-2Sagdan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4807,7 +4807,7 @@ GameObject:
   - component: {fileID: 2172535633867519438}
   - component: {fileID: 2171307833880327310}
   m_Layer: 0
-  m_Name: FX_ArtilleryStrike_01
+  m_Name: EnemyCarDieExp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

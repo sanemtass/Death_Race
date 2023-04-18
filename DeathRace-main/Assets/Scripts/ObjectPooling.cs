@@ -1,55 +1,91 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class ObjectPooling : MonoBehaviour
 {
-    public static ObjectPooling Instance { get; private set; }
+    private static ObjectPooling instance = null;
+    public static ObjectPooling Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new GameObject("ObjectPooling").AddComponent<ObjectPooling>();
+            }
+            return instance;
+        }
+    }
+    private void OnEnable()
+    {
+        instance = this;
+    }
 
-    public GameObject bulletPrefab;
-    public int initialPoolSize = 10;
-    private List<GameObject> bullets;
+    [Serializable]
+    public struct Pool
+    {
+        public Queue<GameObject> PooledObjects;
+        public GameObject objectPrefab;
+        public int poolSize;
+    }
+
+    [SerializeField] public Pool[] pools = null;
 
     private void Awake()
     {
-        if (Instance == null)
+        for (int i = 0; i < pools.Length; i++)
         {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        bullets = new List<GameObject>();
-
-        for (int i = 0; i < initialPoolSize; i++)
-        {
-            GameObject bullet = Instantiate(bulletPrefab);
-            bullet.SetActive(false);
-            bullets.Add(bullet);
-        }
-    }
-
-    public GameObject GetBullet()
-    {
-        foreach (var bullet in bullets)
-        {
-            if (!bullet.activeInHierarchy)
+            pools[i].PooledObjects = new Queue<GameObject>();
+            var PoolParent = new GameObject();
+            PoolParent.transform.parent = transform;
+            PoolParent.name = pools[i].objectPrefab.ToString();
+            pools[i].PooledObjects = new Queue<GameObject>();
+            for (int j = 0; j < pools[i].poolSize; j++)
             {
-                return bullet;
+                GameObject obj = Instantiate(pools[i].objectPrefab);
+                obj.SetActive(false);
+
+                pools[i].PooledObjects.Enqueue(obj);
+                obj.transform.parent = PoolParent.transform;
             }
         }
-
-        GameObject newBullet = Instantiate(bulletPrefab);
-        bullets.Add(newBullet);
-        return newBullet;
     }
 
-    public void ReturnBullet(GameObject bullet)
+    public GameObject GetPoolObject(int objectType)
     {
-        bullet.SetActive(false);
-        bullet.GetComponent<Bullet>().GetTarget(Vector3.zero); // Hedefi sıfırlayın
+        if (objectType >= pools.Length) return null;
+        if (pools[objectType].PooledObjects.Count == 0)
+        {
+            Debug.Log("Stack limit reached");
+            AddSizePool(5f, objectType);
+        }
+
+
+        GameObject obj = pools[objectType].PooledObjects.Dequeue();
+        obj.SetActive(true);
+        if (objectType == 0)
+        {
+            pools[objectType].PooledObjects.Enqueue(obj);
+        }
+        return obj;
+    }
+
+    public void SetPoolObject(GameObject pooledObject, int objectType)
+    {
+        if (objectType >= pools.Length) return;
+        pools[objectType].PooledObjects.Enqueue(pooledObject);
+        pooledObject.SetActive(false);
+    }
+
+    public void AddSizePool(float amount, int objectType)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            GameObject obj = Instantiate(pools[objectType].objectPrefab);
+            obj.SetActive(false);
+            pools[objectType].PooledObjects.Enqueue(obj);
+        }
     }
 }

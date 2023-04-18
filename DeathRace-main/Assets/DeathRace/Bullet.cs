@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections;
-using UmbrellaUtils.Pool;
+﻿using System.Collections;
 using UnityEngine;
-using Cysharp.Threading.Tasks;
 
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float lifetime = 2.0f; // Mermi ömrünü belirleyin
+    [SerializeField] private float lifetime = 2.0f;
 
     private Rigidbody rb;
-    private GunBehaviour gunBehaviour;
+    public GunBehaviour gunBehaviour;
 
     public Vector3 targetPos;
 
-    private UIManager uIManager;
-
-    private void Awake()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        uIManager = GetComponent<UIManager>();
     }
 
     private void OnEnable()
@@ -30,11 +24,8 @@ public class Bullet : MonoBehaviour
 
     private IEnumerator DestroyAfterLifetime()
     {
-        // Belirlenen süre kadar bekleyin
         yield return new WaitForSeconds(lifetime);
-
-        // Süre dolduğunda mermiyi pool'a geri gönderin
-        ObjectPooling.Instance.ReturnBullet(gameObject);
+        ObjectPooling.Instance.SetPoolObject(gameObject, gunBehaviour.bulletObjectType);
     }
 
     private void Update()
@@ -42,7 +33,7 @@ public class Bullet : MonoBehaviour
         if (targetPos != null)
         {
             float step = speed * Time.deltaTime;
-            Vector3 atisYonu = targetPos - transform.position; // Atış yönü, çarpma noktası ile merminin pozisyonu arasındaki fark
+            Vector3 atisYonu = targetPos - transform.position;
             atisYonu.Normalize();
             rb.velocity = atisYonu * speed;
         }
@@ -63,7 +54,7 @@ public class Bullet : MonoBehaviour
         if (other.transform.TryGetComponent<IDamagable>(out var damagable))
         {
             damagable.TakeDamage(10);
-            ObjectPooling.Instance.ReturnBullet(gameObject);
+            ObjectPooling.Instance.SetPoolObject(gameObject, gunBehaviour.bulletObjectType);
         }
     }
 }

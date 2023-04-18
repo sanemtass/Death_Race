@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 4012348777042371757}
   - component: {fileID: 389644073724680}
   - component: {fileID: 2874867940447657922}
+  - component: {fileID: 9029358614692439969}
+  - component: {fileID: 4693105224379082523}
+  - component: {fileID: 1129704557397915588}
   m_Layer: 0
   m_Name: Level5Gun
   m_TagString: Untagged
@@ -83,3 +86,48 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9029358614692439969
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388029241978338839}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3243961, y: 0.01187681, z: 0.33201346}
+  m_Center: {x: 0.0013889968, y: -0.000044443877, z: 0.000000029802322}
+--- !u!54 &4693105224379082523
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388029241978338839}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &1129704557397915588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388029241978338839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53addff232a42e89fc913d8c8ffe730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 70
+  lifetime: 2
+  gunBehaviour: {fileID: 0}
+  targetPos: {x: 0, y: 0, z: 0}

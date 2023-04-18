@@ -33,6 +33,7 @@ public class EnemyCarBehaviour : MonoBehaviour, IDamagable
     {
         Initialized();
         RegenerateArmor();
+        uIManager.UpdateHealthBarEnemy(); //? emin degilim
     }
 
     void Update()

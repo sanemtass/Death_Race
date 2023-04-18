@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75b0d4def6cb5914f9f87b245701638b, type: 3}
-  m_Name: Gun
+  m_Name: Gun 5
   m_EditorClassIdentifier: 
-  gunPrefab: {fileID: 3421010284226137349, guid: e28a9b7f7cc334125b7b268be07d79fe,
+  gunPrefab: {fileID: 3170237670256881355, guid: d8f96d07d93474484bf68e5c6d19f792,
     type: 3}
-  bulletPrefab: {fileID: 7048903030946031751, guid: 49c7714ffc287614da8cb89cdf126b80,
+  bulletPrefab: {fileID: 4388029241978338839, guid: f7e6f069fbeea4e9fb5e383b2d4742d2,
     type: 3}
-  fireRate: 3
-  nextGun: {fileID: 11400000, guid: 759ff19de6ccb42499111b21c3aecd3f, type: 2}
+  fireRate: 2
+  nextGun: {fileID: 11400000, guid: 05d34fb1e6ed047638d99947dee51bd2, type: 2}

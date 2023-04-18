@@ -639,7 +639,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8317098968726229911}
-  m_LocalRotation: {x: -0.000000030908623, y: -0.7071068, z: -0.7071068, w: 0.000000030908623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1623183, y: 0.07109381, z: 0.16231832}
   m_ConstrainProportionsScale: 0
@@ -721,10 +721,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gun: {fileID: 11400000, guid: f95cca3e44c474f0e9340c79cb004d4b, type: 2}
-  bulletObject: {fileID: 7048903030946031751, guid: 49c7714ffc287614da8cb89cdf126b80,
-    type: 3}
+  bulletObjectType: 0
   spawnPosition: {fileID: 607917517851908042}
   nextGun: {fileID: 11400000, guid: 87319c3108c4f42cdab6e2b62d5b875f, type: 2}
+  gunRotation: {x: 270, y: 0, z: 0}
 --- !u!65 &5709175812462346085
 BoxCollider:
   m_ObjectHideFlags: 0

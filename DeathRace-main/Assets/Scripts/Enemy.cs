@@ -121,6 +121,7 @@ public class Enemy : MonoBehaviour
         {
             GameObject weapon = Instantiate(nextGun.gunPrefab, gunTransform.position, gunTransform.rotation);
             weapon.transform.parent = gunTransform.parent;
+            weapon.transform.rotation = Quaternion.Euler(0, 0, 0);
             float yOffset = 0.20f; // silahların yukarıda olacağı mesafe
             weapon.transform.localPosition = Vector3.up * yOffset;
             GunBehaviour newGunBehaviour = weapon.GetComponent<GunBehaviour>();
