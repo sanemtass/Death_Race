@@ -59,6 +59,7 @@ public class UIManager : MonoBehaviour
             gameManager.gold.count -= gameManager.addHealth.cost;
             gameManager.addHealth.LevelUp();
             onAddHealth?.Invoke();
+            UpdateHealthBarPlayer(); // UI güncellemesi için bu satırı ekleyin
         }
     }
 

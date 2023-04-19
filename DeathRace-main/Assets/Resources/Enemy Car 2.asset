@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c0bfd3f60e4846bd397f3a6fcd1dde, type: 3}
-  m_Name: BuyTurret
+  m_Script: {fileID: 11500000, guid: 06323e228a56346d4aad808583f2e975, type: 3}
+  m_Name: Enemy Car 2
   m_EditorClassIdentifier: 
-  count: 4
-  level: 5
-  cost: 566
-  maxLevel: 0
-  increaseCost: 1.3
+  carPrefab: {fileID: 2857302338327575740, guid: d5d7c1f1da6174bdf8a6dfaeb2a6fff8,
+    type: 3}
+  health: 0
+  maxHealth: 100
+  armor: 0
+  maxArmor: 0

@@ -31,6 +31,11 @@ public class CarBehavior : MonoBehaviour, IDamagable
     private int[] healthThresholds;
     private int currentThreshold;
 
+    [SerializeField] private List<GameObject> carMeshes;
+    private int activeCarMeshIndex;
+    private GameObject activeCarMesh;
+
+
     private void OnEnable()
     {
         UIManager.onAddHealth += InitHealth;
@@ -127,6 +132,8 @@ public class CarBehavior : MonoBehaviour, IDamagable
         }
     }
 
+   
+
 
     private void Initialized()
     {
@@ -139,5 +146,23 @@ public class CarBehavior : MonoBehaviour, IDamagable
     {
         maxHealth = baseMaxHealth;
         baseMaxHealth = (int)(baseMaxHealth * manager.addHealth.increaseCost);
+        health += (int)(baseMaxHealth * manager.addHealth.increaseCost); // Health'i arttır
+        health = Mathf.Min(health, maxHealth); // Health'in max değerini aşmamasını sağla
+
+        activeCarMeshIndex++;
+
+        if (activeCarMeshIndex >= 4 && activeCarMeshIndex <= 6)
+        {
+            carMeshes[1].SetActive(true);
+            carMeshes[0].SetActive(false);
+        }
+
+        else if (activeCarMeshIndex > 6)
+        {
+            carMeshes[1].SetActive(false);
+            carMeshes[0].SetActive(false);
+            carMeshes[2].SetActive(true);
+        }
     }
+
 }

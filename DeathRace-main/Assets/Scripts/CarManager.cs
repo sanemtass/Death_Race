@@ -5,9 +5,10 @@ using Cysharp.Threading.Tasks;
 
 public class CarManager : MonoBehaviour
 {
-    public Car enemyCar;
+    public List<Car> enemyCarList;
+
     public Transform playerCar; // Oyuncu aracının referansı
-    public float respawnDistance = 50f; // Düşmanın oyuncudan ne kadar uzakta oluşacağını belirleyin (ör. 50 birim)
+    public float respawnDistance = 20f; // Düşmanın oyuncudan ne kadar uzakta oluşacağını belirleyin (ör. 50 birim)
 
     public async UniTask Respawn()
     {
@@ -17,7 +18,13 @@ public class CarManager : MonoBehaviour
         // Oyuncu aracına göre düşman aracının oluşacağı konumu hesaplayın
         Vector3 spawnPosition = playerCar.position - playerCar.forward * respawnDistance;
 
-        // Düşman aracını hesaplanan konumda oluşturun
-        Instantiate(enemyCar.carPrefab, spawnPosition, playerCar.rotation);
+        // Düşman aracını oyuncu aracının solunda olacak şekilde hesaplayın
+        spawnPosition -= playerCar.right * 8;
+
+        // Listedeki rastgele bir düşman arabasını seçin
+        Car randomEnemyCar = enemyCarList[Random.Range(0, enemyCarList.Count)];
+
+        // Rastgele seçilen düşman arabasını hesaplanan konumda oluşturun
+        Instantiate(randomEnemyCar.carPrefab, spawnPosition, playerCar.rotation);
     }
 }

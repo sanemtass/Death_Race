@@ -1433,7 +1433,7 @@ PrefabInstance:
     - target: {fileID: 2857302338327575739, guid: 46b912350f36e43239478b60275fd0d3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2857302338327575739, guid: 46b912350f36e43239478b60275fd0d3,
         type: 3}
@@ -1820,7 +1820,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &933978586
 GameObject:
@@ -2271,7 +2271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bec51f230144126a34cf10eb445e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCar: {fileID: 11400000, guid: 3163e328d127744fbb4085a85e62f106, type: 2}
+  enemyCarList:
+  - {fileID: 11400000, guid: 2e3a442edb6a649ee8dca6bd2194ef6f, type: 2}
+  - {fileID: 11400000, guid: 171634ace31d54628a8f2654eb71b03c, type: 2}
   playerCar: {fileID: 1216064665}
   respawnDistance: 50
 --- !u!4 &1078822922
@@ -2821,6 +2823,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3463377482779925033, guid: 605ae829960be4dd7a6995645d73fd08,
         type: 3}
+      propertyPath: speed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463377482779925033, guid: 605ae829960be4dd7a6995645d73fd08,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -2836,10 +2843,32 @@ PrefabInstance:
       objectReference: {fileID: 1790841339}
     - target: {fileID: 3463377482779925043, guid: 605ae829960be4dd7a6995645d73fd08,
         type: 3}
+      propertyPath: carPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463377482779925043, guid: 605ae829960be4dd7a6995645d73fd08,
+        type: 3}
       propertyPath: damageParticlesPrefab
       value: 
       objectReference: {fileID: 4135827509780760883, guid: 57e02d4baaa8cde48b5d4db89e5f112d,
         type: 3}
+    - target: {fileID: 3463377482779925043, guid: 605ae829960be4dd7a6995645d73fd08,
+        type: 3}
+      propertyPath: carDataList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463377482779925043, guid: 605ae829960be4dd7a6995645d73fd08,
+        type: 3}
+      propertyPath: carPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 6616581011289688226, guid: cfd29a8544eb04216a17c0a19ab2077c,
+        type: 3}
+    - target: {fileID: 3463377482779925043, guid: 605ae829960be4dd7a6995645d73fd08,
+        type: 3}
+      propertyPath: carDataList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c2e29c9cb9aae40d295594e976b01882,
+        type: 2}
     - target: {fileID: 3463377482779925043, guid: 605ae829960be4dd7a6995645d73fd08,
         type: 3}
       propertyPath: healthParticles.Array.size
