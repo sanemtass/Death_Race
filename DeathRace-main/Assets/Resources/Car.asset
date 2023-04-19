@@ -16,5 +16,5 @@ MonoBehaviour:
     type: 3}
   health: 0
   maxHealth: 100
-  armor: 0
-  maxArmor: 0
+  armor: 100
+  maxArmor: 100

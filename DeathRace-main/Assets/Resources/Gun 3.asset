@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b0d4def6cb5914f9f87b245701638b, type: 3}
   m_Name: Gun 3
   m_EditorClassIdentifier: 
-  gunPrefab: {fileID: 8317098968726229911, guid: 17dc99efd2e124a70917d823cb63a09a,
-    type: 3}
-  bulletPrefab: {fileID: 7048903030946031751, guid: 49c7714ffc287614da8cb89cdf126b80,
+  gunPrefab: {fileID: 109612855474907113, guid: 17dc99efd2e124a70917d823cb63a09a,
     type: 3}
   fireRate: 2
   nextGun: {fileID: 11400000, guid: 87319c3108c4f42cdab6e2b62d5b875f, type: 2}

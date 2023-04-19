@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunPrefab: {fileID: 929903939003357949, guid: e7f6778a8f4f24c3ababf065f6157f4d,
     type: 3}
-  bulletPrefab: {fileID: 1312884083810358917, guid: fbe46783011904b6cb226ad574650851,
-    type: 3}
-  fireRate: 1
+  fireRate: 2
   nextGun: {fileID: 0}

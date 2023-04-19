@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider healthBarSliderPlayer;
     [SerializeField] private Slider healthBarSliderEnemy;
 
+    [SerializeField] private Slider armorBarSliderPlayer;
+
     private EnemyCarBehaviour enemyCarBehaviour;
     private CarBehavior carBehavior;
     private GameManager gameManager;
@@ -64,6 +66,9 @@ public class UIManager : MonoBehaviour
     {
         float healthPercentage = (float)carBehavior.health / carBehavior.maxHealth;
         healthBarSliderPlayer.value = healthPercentage;
+
+        float armorPercentage = (float)carBehavior.armor / carBehavior.maxArmor;
+        armorBarSliderPlayer.value = armorPercentage;
     }
 
     public void UpdateHealthBarEnemy()

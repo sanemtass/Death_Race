@@ -14,13 +14,22 @@ public class CarBehavior : MonoBehaviour, IDamagable
     public int armor;
     public int maxArmor;
 
-    [SerializeField] private bool isArmorBroken;
+    private int baseMaxHealth;
+    private float lastDamageTime;
+
     [SerializeField] private bool istakeDamage;
     [SerializeField] private List<GameObject> fallingObjects;
+
+    private bool healthBarUpdated = false;
 
     private GameManager manager;
     private UIManager uIManager;
 
+    [SerializeField] private List<Transform> particlePoints; // Transform listesi ekle
+    [SerializeField] private ParticleSystem damageParticlePrefab; // Damage particle prefab ekle
+
+    private int[] healthThresholds;
+    private int currentThreshold;
 
     private void OnEnable()
     {
@@ -35,95 +44,89 @@ public class CarBehavior : MonoBehaviour, IDamagable
     {
         manager = FindObjectOfType<GameManager>();
         uIManager = FindObjectOfType<UIManager>();
+        baseMaxHealth = car.maxHealth;
     }
-
 
     private void Start()
     {
         InitHealth();
         Initialized();
         RegenerateArmor();
-        uIManager.UpdateHealthBarPlayer(); //? emin degilim
+
+        healthThresholds = new int[] { maxHealth * 3 / 4, maxHealth / 2, maxHealth / 4 };
+        currentThreshold = 0;
     }
 
     void Update()
     {
-        
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!healthBarUpdated)
         {
-            TakeDamage(10);
-            //UpdateHealthBar();
+            uIManager.UpdateHealthBarPlayer();
+            healthBarUpdated = true;
         }
-
     }
-
 
     public void Die()
     {
-        //burada olme islemi
+        // Burada ölme işlemi
     }
 
     public void TakeDamage(int value)
     {
+        lastDamageTime = Time.time;
         istakeDamage = true;
 
-        if (!isArmorBroken)
+        if (armor > 0)
         {
-            if (value <= armor)
+            int remainingDamage = Mathf.Max(value - armor, 0);
+            armor = Mathf.Max(armor - value, 0);
+            value = remainingDamage;
+        }
+
+        if (value > 0)
+        {
+            health -= value;
+            health = Mathf.Max(health, 0);
+
+            // Health belirli bir eşikten azaldığında partikül sistemi başlat
+            if (currentThreshold < healthThresholds.Length && health <= healthThresholds[currentThreshold])
             {
-                armor -= value;
+                var particleInstance = Instantiate(damageParticlePrefab, particlePoints[currentThreshold].position, Quaternion.identity);
+                particleInstance.Play();
+                currentThreshold++;
             }
 
-            else
+            if (fallingObjects.Count > 0)
             {
-                isArmorBroken = true;
-                armor = 0;
+                var fallingObj = fallingObjects.GetRandom();
+                fallingObj.AddComponent<Rigidbody>().AddForce(Vector3.up * 3, ForceMode.Impulse);
+                fallingObj.transform.parent = null;
+                fallingObjects.Remove(fallingObj);
+            }
+
+            if (health == 0)
+            {
+                Die();
             }
         }
 
-        else
-        {
-            if (value < health)
-            {
-                health -= value;
-                if (fallingObjects.Count>0)
-                {
-                    var fallingObj = fallingObjects.GetRandom();
-                    fallingObj.AddComponent<Rigidbody>().AddForce(Vector3.up * 3,ForceMode.Impulse);
-                    fallingObj.transform.parent = null;
-                    fallingObjects.Remove(fallingObj);
-                    uIManager.UpdateHealthBarPlayer();
-                }
-            }
-
-            else
-            {
-                health = 0;
-                Die();  
-            }
-        }
+        uIManager.UpdateHealthBarPlayer();
     }
 
     private async void RegenerateArmor()
     {
-        while (!isArmorBroken)
+        while (true)
         {
-            await UniTask.Delay(3000);
-            istakeDamage = false;
-            if (!istakeDamage)
+            await UniTask.Delay(1000);
+
+            if (Time.time - lastDamageTime >= 3.0f)
             {
-                if (armor <= maxArmor)
-                {
-                    Debug.Log("here");
-                    armor += 3;
-                }
-                else
-                {
-                    armor = maxArmor;
-                }
+                armor = maxArmor;
+                uIManager.UpdateHealthBarPlayer();
             }
         }
     }
+
 
     private void Initialized()
     {
@@ -134,9 +137,7 @@ public class CarBehavior : MonoBehaviour, IDamagable
 
     public void InitHealth()
     {
-        maxHealth = car.maxHealth;
-        car.maxHealth = (int)(car.maxHealth * manager.addHealth.increaseCost);
+        maxHealth = baseMaxHealth;
+        baseMaxHealth = (int)(baseMaxHealth * manager.addHealth.increaseCost);
     }
 }
-
-

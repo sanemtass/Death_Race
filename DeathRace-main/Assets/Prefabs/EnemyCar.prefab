@@ -31,6 +31,37 @@ Transform:
   m_Father: {fileID: 2705371589619262742}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &776144960259077394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6133408111592296585}
+  m_Layer: 6
+  m_Name: ParticlePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6133408111592296585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776144960259077394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.45, y: 1.41, z: 1.93}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2857302338327575739}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1137807182787506902
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +279,9 @@ Transform:
   m_Children:
   - {fileID: 2857302338464049800}
   - {fileID: 2705371589619262742}
+  - {fileID: 6133408111592296585}
+  - {fileID: 2940641556999248244}
+  - {fileID: 4807960237493028787}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -346,15 +380,18 @@ MonoBehaviour:
   enemyCar: {fileID: 11400000, guid: 3163e328d127744fbb4085a85e62f106, type: 2}
   health: 0
   maxHealth: 100
-  armor: 0
-  maxArmor: 0
   isArmorBroken: 0
   istakeDamage: 0
   fallingObjects:
   - {fileID: 2857302339993904040}
   - {fileID: 2857302339678593279}
   - {fileID: 2857302338306145983}
-  healthBarSlider: {fileID: 0}
+  particlePoints:
+  - {fileID: 6133408111592296585}
+  - {fileID: 2940641556999248244}
+  - {fileID: 4807960237493028787}
+  damageParticlePrefab: {fileID: 4135827509780760883, guid: 57e02d4baaa8cde48b5d4db89e5f112d,
+    type: 3}
 --- !u!114 &5752935096541707250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1352,8 +1389,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3368896532521746348}
-  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: -0.075, y: 2.792, z: 0.153}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04, y: 2.44, z: -0.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1442,9 +1479,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   gun: {fileID: 11400000, guid: d94ba2df7f99648bda3f3b608b1eced1, type: 2}
-  bulletObject: {fileID: 7048903030946031751, guid: 49c7714ffc287614da8cb89cdf126b80,
-    type: 3}
+  bulletObjectType: 0
   spawnPosition: {fileID: 3508392900060517686}
+  nextGun: {fileID: 0}
+  gunRotation: {x: 0, y: 90, z: 0}
 --- !u!1 &4613864960832319476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,6 +1650,68 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6576995088734545524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2940641556999248244}
+  m_Layer: 6
+  m_Name: ParticlePoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2940641556999248244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6576995088734545524}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: -0.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2857302338327575739}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7010467129167626328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4807960237493028787}
+  m_Layer: 6
+  m_Name: ParticlePoint (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4807960237493028787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7010467129167626328}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.52, z: -2.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2857302338327575739}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7375687539558717945
 GameObject:
   m_ObjectHideFlags: 0
