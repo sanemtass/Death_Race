@@ -12,6 +12,8 @@ public class EnemyCarBehaviour : MonoBehaviour, IDamagable
     public int health;
     public int maxHealth;
 
+    public static int EnemyCarCount = 0;
+
     [SerializeField] private bool isArmorBroken;
     [SerializeField] private bool istakeDamage;
     [SerializeField] private List<GameObject> fallingObjects;
@@ -34,6 +36,8 @@ public class EnemyCarBehaviour : MonoBehaviour, IDamagable
         carManager = FindObjectOfType<CarManager>();
         uIManager = FindObjectOfType<UIManager>();
         baseMaxHealth = enemyCar.maxHealth;
+
+        EnemyCarCount++;
     }
 
     private void Start()
@@ -53,14 +57,28 @@ public class EnemyCarBehaviour : MonoBehaviour, IDamagable
         }
     }
 
-    public void Die()
+    public async UniTask DieAsync()
     {
         //burada olme islemi
         //particle girecek
-        Destroy(gameObject);
-        carManager.Respawn(); // Yeni aracı oluşturmak için çağır
+        EnemyCarCount--; // Her düşman arabası yok edildiğinde sayacı azaltın
 
-        
+        // CarManager'ın Respawn metodunu başlatın ve sonucunu bekleyin
+        var respawnTask = carManager.Respawn();
+
+        // GameObject'i yok edin ve yok etme işlemi tamamlanana kadar bekleyin
+        Destroy(gameObject, 0.1f);
+        await UniTask.Delay(TimeSpan.FromSeconds(0.1));
+
+        // Respawn işlemini tamamlamak için bekleyin
+        await respawnTask;
+    }
+
+
+    public void Die()
+    {
+        // async olan DieAsync() yöntemini çağırın
+        _ = DieAsync();
     }
 
     public void TakeDamage(int value)

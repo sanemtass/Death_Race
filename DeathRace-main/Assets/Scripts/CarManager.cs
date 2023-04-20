@@ -10,8 +10,13 @@ public class CarManager : MonoBehaviour
     public Transform playerCar; // Oyuncu aracının referansı
     public float respawnDistance = 20f; // Düşmanın oyuncudan ne kadar uzakta oluşacağını belirleyin (ör. 50 birim)
 
+    private bool isRespawning = false;
+
     public async UniTask Respawn()
     {
+        if (EnemyCarBehaviour.EnemyCarCount > 0 || isRespawning) return;
+
+        isRespawning = true;
         await UniTask.Delay(3000);
 
         // Oyuncu aracına göre düşman aracının oluşacağı konumu hesaplayın
@@ -27,5 +32,7 @@ public class CarManager : MonoBehaviour
 
         // UIManager sınıfında düşman arabasının sağlık çubuğunu güncellemek için yeni bir fonksiyon çağırın
         FindObjectOfType<UIManager>().UpdateEnemyHealthBarOnRespawn(newEnemyCar.GetComponent<EnemyCarBehaviour>());
+
+        isRespawning = false;
     }
 }

@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263897821361081278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.7, z: 2.01}
+  m_LocalPosition: {x: -0.01, y: 1.7, z: 2.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -120,7 +120,7 @@ MonoBehaviour:
   bulletObjectType: 4
   spawnPosition: {fileID: 3665817417341359944}
   nextGun: {fileID: 11400000, guid: f95cca3e44c474f0e9340c79cb004d4b, type: 2}
-  gunRotation: {x: 0, y: 270, z: 0}
+  gunRotation: {x: 0, y: 90, z: 0}
 --- !u!1 &776144960259077394
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,8 +369,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.720127, y: 3.0282073, z: 6.172392}
-  m_Center: {x: -0.017552376, y: 1.4880164, z: 0.08834839}
+  m_Size: {x: 0.61511755, y: 3.0282073, z: 6.172392}
+  m_Center: {x: 0.096913986, y: 1.4880164, z: 0.08834839}
 --- !u!114 &2857302338327575738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,8 +386,9 @@ MonoBehaviour:
   layermask:
     serializedVersion: 2
     m_Bits: 128
-  speed: 35
+  speed: 30
   period: 0
+  isFree: 0
 --- !u!114 &2857302338327575733
 MonoBehaviour:
   m_ObjectHideFlags: 0

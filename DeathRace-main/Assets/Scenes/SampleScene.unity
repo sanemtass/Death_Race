@@ -155,22 +155,22 @@ MonoBehaviour:
   pools:
   - objectPrefab: {fileID: 7048903030946031751, guid: 49c7714ffc287614da8cb89cdf126b80,
       type: 3}
-    poolSize: 10
+    poolSize: 15
   - objectPrefab: {fileID: 4388029241978338839, guid: f7e6f069fbeea4e9fb5e383b2d4742d2,
       type: 3}
-    poolSize: 10
+    poolSize: 15
   - objectPrefab: {fileID: 1312884083810358917, guid: fbe46783011904b6cb226ad574650851,
       type: 3}
-    poolSize: 10
+    poolSize: 15
   - objectPrefab: {fileID: 7048903030946031751, guid: 77b6bc91b9e7444a89f002b7ba5960cc,
       type: 3}
-    poolSize: 10
+    poolSize: 15
   - objectPrefab: {fileID: 7048903030946031751, guid: 0e707713d27e54e07a891a6b45f4e1a3,
       type: 3}
-    poolSize: 10
+    poolSize: 15
   - objectPrefab: {fileID: 7048903030946031751, guid: 7dd5081d106c144a795eb80808ca1149,
       type: 3}
-    poolSize: 10
+    poolSize: 15
 --- !u!4 &15723942
 Transform:
   m_ObjectHideFlags: 0
@@ -1552,6 +1552,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2857302338327575733, guid: 46b912350f36e43239478b60275fd0d3,
+        type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2857302338327575733, guid: 46b912350f36e43239478b60275fd0d3,
+        type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2857302338327575738, guid: 46b912350f36e43239478b60275fd0d3,
         type: 3}
       propertyPath: m_Enabled

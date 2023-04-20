@@ -77,7 +77,7 @@ public class Bullet : MonoBehaviour
             }
             else if (bulletTag == BulletTag.Level6)
             {
-                damagable.TakeDamage(20);
+                damagable.TakeDamage(10);
             }
 
             //damagable.TakeDamage(10);
