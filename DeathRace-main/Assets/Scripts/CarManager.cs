@@ -12,7 +12,6 @@ public class CarManager : MonoBehaviour
 
     public async UniTask Respawn()
     {
-        gameObject.SetActive(false);
         await UniTask.Delay(3000);
 
         // Oyuncu aracına göre düşman aracının oluşacağı konumu hesaplayın
@@ -24,7 +23,9 @@ public class CarManager : MonoBehaviour
         // Listedeki rastgele bir düşman arabasını seçin
         Car randomEnemyCar = enemyCarList[Random.Range(0, enemyCarList.Count)];
 
-        // Rastgele seçilen düşman arabasını hesaplanan konumda oluşturun
-        Instantiate(randomEnemyCar.carPrefab, spawnPosition, playerCar.rotation);
+        GameObject newEnemyCar = Instantiate(randomEnemyCar.carPrefab, spawnPosition, playerCar.rotation);
+
+        // UIManager sınıfında düşman arabasının sağlık çubuğunu güncellemek için yeni bir fonksiyon çağırın
+        FindObjectOfType<UIManager>().UpdateEnemyHealthBarOnRespawn(newEnemyCar.GetComponent<EnemyCarBehaviour>());
     }
 }

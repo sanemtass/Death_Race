@@ -9,7 +9,7 @@ public class MovementController : MonoBehaviour
 
     public float period = 0.0f;
 
-    [SerializeField] private float speed = 29f;
+    [SerializeField] private float speed = 30f;
 
     private void Update()
     {

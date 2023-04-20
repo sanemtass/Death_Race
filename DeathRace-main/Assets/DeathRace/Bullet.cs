@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float lifetime = 2.0f;
 
+    public BulletTag bulletTag;
+
     private Rigidbody rb;
     public GunBehaviour gunBehaviour;
 
@@ -51,10 +53,48 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.TryGetComponent<IDamagable>(out var damagable))
+        if (gunBehaviour != null && other.gameObject != gunBehaviour.gameObject && other.transform.TryGetComponent<IDamagable>(out var damagable))
         {
-            damagable.TakeDamage(10);
+            if (bulletTag == BulletTag.Level1)
+            {
+                damagable.TakeDamage(2);
+            }
+            else if(bulletTag == BulletTag.Level2)
+            {
+                damagable.TakeDamage(1);
+            }
+            else if (bulletTag == BulletTag.Level3)
+            {
+                damagable.TakeDamage(3);
+            }
+            else if (bulletTag == BulletTag.Level4)
+            {
+                damagable.TakeDamage(4);
+            }
+            else if (bulletTag == BulletTag.Level5)
+            {
+                damagable.TakeDamage(5);
+            }
+            else if (bulletTag == BulletTag.Level6)
+            {
+                damagable.TakeDamage(20);
+            }
+
+            //damagable.TakeDamage(10);
             ObjectPooling.Instance.SetPoolObject(gameObject, gunBehaviour.bulletObjectType);
         }
     }
+
+
+}
+
+
+public enum BulletTag
+{
+    Level1,
+    Level2,
+    Level3,
+    Level4,
+    Level5,
+    Level6
 }

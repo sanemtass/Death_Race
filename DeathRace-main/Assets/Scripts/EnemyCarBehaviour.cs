@@ -57,10 +57,10 @@ public class EnemyCarBehaviour : MonoBehaviour, IDamagable
     {
         //burada olme islemi
         //particle girecek
-
         Destroy(gameObject);
+        carManager.Respawn(); // Yeni aracı oluşturmak için çağır
 
-        carManager.Respawn(); // Yeni aracı oluşturmak için zamanla çağır
+        
     }
 
     public void TakeDamage(int value)

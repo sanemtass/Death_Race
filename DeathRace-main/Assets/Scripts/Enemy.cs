@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
                 {
                     GameObject weapon = Instantiate(activeGuns.gunPrefab, t.slotTransforms);
                     weapon.transform.parent = t.slotTransforms;
-                    float yOffset = 0.20f; // silahların yukarıda olacağı mesafe
+                    float yOffset = -0.17f; // silahların yukarıda olacağı mesafe
                     weapon.transform.localPosition = Vector3.up * yOffset;
                     t.isEmpty = true;
                     isCreated = true;

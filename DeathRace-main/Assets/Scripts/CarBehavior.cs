@@ -96,7 +96,7 @@ public class CarBehavior : MonoBehaviour, IDamagable
             // Health belirli bir eşikten azaldığında partikül sistemi başlat
             if (currentThreshold < healthThresholds.Length && health <= healthThresholds[currentThreshold])
             {
-                var particleInstance = Instantiate(damageParticlePrefab, particlePoints[currentThreshold].position, Quaternion.identity);
+                var particleInstance = Instantiate(damageParticlePrefab, particlePoints[currentThreshold]);
                 particleInstance.Play();
                 currentThreshold++;
             }
@@ -131,9 +131,6 @@ public class CarBehavior : MonoBehaviour, IDamagable
             }
         }
     }
-
-   
-
 
     private void Initialized()
     {

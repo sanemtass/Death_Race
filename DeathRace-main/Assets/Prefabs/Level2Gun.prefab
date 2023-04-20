@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 5955217686071381646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5824749290218273091}
@@ -148,7 +148,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gun: {fileID: 11400000, guid: 759ff19de6ccb42499111b21c3aecd3f, type: 2}
-  bulletObjectType: 0
+  bulletObjectType: 4
   spawnPosition: {fileID: 7193157633216402040}
   nextGun: {fileID: 11400000, guid: f95cca3e44c474f0e9340c79cb004d4b, type: 2}
   gunRotation: {x: 0, y: 270, z: 0}

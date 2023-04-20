@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 40
   lifetime: 2
+  bulletTag: 5
   gunBehaviour: {fileID: 0}
   targetPos: {x: 0, y: 0, z: 0}
 --- !u!65 &7676057895042134706

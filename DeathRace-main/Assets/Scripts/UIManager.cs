@@ -102,5 +102,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
+    public void UpdateEnemyHealthBarOnRespawn(EnemyCarBehaviour newEnemyCar)
+    {
+        enemyCarBehaviour = newEnemyCar;
+        UpdateHealthBarEnemy();
+    }
 }

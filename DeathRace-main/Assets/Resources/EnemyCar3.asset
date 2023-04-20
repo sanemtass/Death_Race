@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06323e228a56346d4aad808583f2e975, type: 3}
   m_Name: EnemyCar3
   m_EditorClassIdentifier: 
-  carPrefab: {fileID: 2857302338327575740, guid: 31ee993301e7d4b40ab38dea3ff304ee,
+  carPrefab: {fileID: 2857302338327575740, guid: ded4a231521ba481795510b82b3c3d79,
     type: 3}
   health: 0
   maxHealth: 100

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carPrefab: {fileID: 2857302338327575740, guid: 46b912350f36e43239478b60275fd0d3,
     type: 3}
-  health: 0
+  health: 100
   maxHealth: 100
   armor: 0
   maxArmor: 0

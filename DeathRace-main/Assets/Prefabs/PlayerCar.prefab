@@ -347,6 +347,8 @@ GameObject:
   - component: {fileID: 5107925694533371480}
   - component: {fileID: 250559050747959405}
   - component: {fileID: 6317155525829126202}
+  - component: {fileID: 6716040365357416403}
+  - component: {fileID: 699520799325682145}
   m_Layer: 0
   m_Name: SM_Veh_Muscle_Wheel_rl
   m_TagString: Untagged
@@ -419,6 +421,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6716040365357416403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2166688941411881666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4766cabe658bf45bd993efed70e06229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 5
+--- !u!54 &699520799325682145
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2166688941411881666}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 110
+  m_CollisionDetection: 0
 --- !u!1 &2670011293464629612
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +742,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3463377482779925032}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d111fe73e3444c50baa1375239a2866, type: 3}
   m_Name: 
@@ -732,6 +763,8 @@ GameObject:
   - component: {fileID: 6937688730860049892}
   - component: {fileID: 7389517408267798028}
   - component: {fileID: 8833576747070120939}
+  - component: {fileID: 2158009922842704032}
+  - component: {fileID: 8348657433104873042}
   m_Layer: 0
   m_Name: SM_Veh_Muscle_Wheel_fr
   m_TagString: Untagged
@@ -804,6 +837,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2158009922842704032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3550385962213642436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4766cabe658bf45bd993efed70e06229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 5
+--- !u!54 &8348657433104873042
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3550385962213642436}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 110
+  m_CollisionDetection: 0
 --- !u!1 &4239099725805430020
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,6 +1029,8 @@ GameObject:
   - component: {fileID: 5889349823853863505}
   - component: {fileID: 7160420065200299667}
   - component: {fileID: 4374927129559283941}
+  - component: {fileID: 1836880944848128331}
+  - component: {fileID: 7213883902188435079}
   m_Layer: 0
   m_Name: SM_Veh_Muscle_Wheel_rr
   m_TagString: Untagged
@@ -1039,6 +1103,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1836880944848128331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4703266588172798700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4766cabe658bf45bd993efed70e06229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 5
+--- !u!54 &7213883902188435079
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4703266588172798700}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 110
+  m_CollisionDetection: 0
 --- !u!1 &5280359410739558673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,6 +1240,8 @@ GameObject:
   - component: {fileID: 4594766645596015771}
   - component: {fileID: 3404472544323739180}
   - component: {fileID: 6180686546301784109}
+  - component: {fileID: 2703320309578867952}
+  - component: {fileID: 3755678120594253805}
   m_Layer: 0
   m_Name: SM_Veh_Muscle_Wheel_fl
   m_TagString: Untagged
@@ -1219,6 +1314,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2703320309578867952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5480374019399282812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4766cabe658bf45bd993efed70e06229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 5
+--- !u!54 &3755678120594253805
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5480374019399282812}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 110
+  m_CollisionDetection: 0
 --- !u!1 &5915280244595074789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,28 +1519,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.58115405
-      objectReference: {fileID: 0}
-    - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.58115405
-      objectReference: {fileID: 0}
-    - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.58115405
-      objectReference: {fileID: 0}
-    - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
-        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.054
+      value: 0.062
       objectReference: {fileID: 0}
     - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.152
+      value: 2.347
       objectReference: {fileID: 0}
     - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
         type: 3}
@@ -1576,28 +1685,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.58115405
-      objectReference: {fileID: 0}
-    - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.58115405
-      objectReference: {fileID: 0}
-    - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.58115405
-      objectReference: {fileID: 0}
-    - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.63883
       objectReference: {fileID: 0}
     - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6764
+      value: 1.818
       objectReference: {fileID: 0}
     - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
         type: 3}
@@ -1671,28 +1765,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.58115405
-      objectReference: {fileID: 0}
-    - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.58115405
-      objectReference: {fileID: 0}
-    - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.58115405
-      objectReference: {fileID: 0}
-    - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.72
       objectReference: {fileID: 0}
     - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6764
+      value: 1.834
       objectReference: {fileID: 0}
     - target: {fileID: 5905493906255323605, guid: f72fd7f46b8f94afdb622cb76e091213,
         type: 3}
